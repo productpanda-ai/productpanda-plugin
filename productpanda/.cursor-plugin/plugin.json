@@ -1,0 +1,29 @@
+{
+  "name": "productpanda",
+  "version": "0.1.0",
+  "description": "Read Product Panda product truth, product audit, tech audit, and competitive analysis, with skills that explain how to call each tool and how each document is structured.",
+  "author": {
+    "name": "Product Panda"
+  },
+  "homepage": "https://app.productpanda.ai",
+  "repository": "https://github.com/productpanda-ai/coding-agent",
+  "keywords": ["productpanda", "product-truth", "audit", "mcp"],
+  "logo": "assets/panda.png",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "PRODUCTPANDA_MCP_URL": {
+        "type": "string",
+        "title": "MCP URL",
+        "description": "Product Panda MCP endpoint. Leave the default for production. For a local API use http://localhost:3000/mcp.",
+        "default": "https://coding-agent-api.fly.dev/mcp"
+      },
+      "PRODUCTPANDA_MCP_KEY": {
+        "type": "string",
+        "title": "MCP key",
+        "description": "Read only key from Product Panda Settings, MCP. It starts with mcp_ and is shown once when created."
+      }
+    },
+    "required": ["PRODUCTPANDA_MCP_KEY"]
+  }
+}

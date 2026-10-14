@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "productpanda": {
+      "url": "${PRODUCTPANDA_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${PRODUCTPANDA_MCP_KEY}"
+      }
+    }
+  }
+}
