@@ -1,9 +1,16 @@
-# Product Panda
+# Product Panda plugins
 
-This folder is a plugin marketplace with one plugin, `productpanda`.
+This repository is two plugins that share a Git remote. Each host only reads its own marketplace file at the repository root, then loads one plugin directory.
 
-Cursor reads `.cursor-plugin/marketplace.json` and loads the plugin from `productpanda/`. Import this folder. Do not import `productpanda/` by itself.
+| Host | Marketplace file | Plugin directory |
+| --- | --- | --- |
+| Cursor | `.cursor-plugin/marketplace.json` | `cursor/` |
+| ChatGPT and Codex | `.agents/plugins/marketplace.json` | `codex/` |
 
-ChatGPT and Codex read `.agents/plugins/marketplace.json`. Add this repository with `codex plugin marketplace add productpanda-ai/productpanda-plugin`, or open it in the ChatGPT desktop app and install Product Panda from the repo marketplace.
+Import this repository root. Cursor resolves `"source": "cursor"` to `cursor/.cursor-plugin/plugin.json`. Codex resolves `./codex` from the repository root.
 
-See `productpanda/README.md` for tools, skills, and configuration.
+`cursor/` is a Cursor plugin: `.cursor-plugin/plugin.json`, `mcp.json`, and `skills/`. The MCP key is a Cursor variable, set in Plugins, then Configure.
+
+`codex/` is an Agent Plugins package: `plugin.json`, `mcp.json`, and `skills/`. `.codex-plugin/plugin.json` and `.mcp.json` are the older Codex fallback. Codex does not send an `Authorization` header from a plugin file, so the key goes in `~/.codex/config.toml`.
+
+See `cursor/README.md` and `codex/README.md`.

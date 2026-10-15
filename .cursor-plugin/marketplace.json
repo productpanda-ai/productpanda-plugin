@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "productpanda",
-      "source": "productpanda",
+      "source": "cursor",
       "description": "Read Product Panda product truth, product audit, tech audit, and competitive analysis, with skills that explain how to call each tool and how each document is structured."
     }
   ]

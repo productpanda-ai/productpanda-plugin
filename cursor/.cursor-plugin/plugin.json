@@ -1,13 +1,12 @@
 {
   "name": "productpanda",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Read Product Panda product truth, product audit, tech audit, and competitive analysis, with skills that explain how to call each tool and how each document is structured.",
   "author": {
     "name": "Product Panda"
   },
   "homepage": "https://app.productpanda.ai",
   "repository": "https://github.com/productpanda-ai/productpanda-plugin",
-  "mcpServers": "./mcp.cursor.json",
   "keywords": ["productpanda", "product-truth", "audit", "mcp"],
   "logo": "assets/panda.png",
   "variables": {

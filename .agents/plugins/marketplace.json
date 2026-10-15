@@ -8,7 +8,7 @@
       "name": "productpanda",
       "source": {
         "source": "local",
-        "path": "./productpanda"
+        "path": "./codex"
       },
       "policy": {
         "installation": "AVAILABLE",
