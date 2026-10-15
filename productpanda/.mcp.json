@@ -3,9 +3,7 @@
     "productpanda": {
       "type": "http",
       "url": "https://coding-agent-api.fly.dev/mcp",
-      "http_headers": {
-        "Authorization": "Bearer PASTE_YOUR_MCP_KEY"
-      }
+      "bearer_token_env_var": "PRODUCTPANDA_MCP_KEY"
     }
   }
 }
