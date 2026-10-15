@@ -4,13 +4,8 @@
     "productpanda": {
       "type": "streamable-http",
       "url": "https://coding-agent-api.fly.dev/mcp",
-      "extensions": {
-        "com.openai": {
-          "auth": {
-            "type": "api_key",
-            "headerScheme": "bearer"
-          }
-        }
+      "headers": {
+        "Authorization": "Bearer PASTE_YOUR_MCP_KEY"
       }
     }
   }
