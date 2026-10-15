@@ -3,10 +3,7 @@
   "mcpServers": {
     "productpanda": {
       "type": "streamable-http",
-      "url": "https://coding-agent-api.fly.dev/mcp",
-      "headers": {
-        "Authorization": "Bearer PASTE_YOUR_MCP_KEY"
-      }
+      "url": "https://coding-agent-api.fly.dev/mcp"
     }
   }
 }

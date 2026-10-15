@@ -14,11 +14,12 @@ The server is read only. The key belongs to one organization and can see every p
 2. Guide them through the connection method supported by their host:
 
    - In Cursor, open Plugins, then Configure. Set MCP URL to `https://coding-agent-api.fly.dev/mcp` and MCP key to the raw key.
-   - In Codex, the bundled server comes from `mcp.json`. `headers.Authorization` must be `Bearer` plus the key. Replace `PASTE_YOUR_MCP_KEY` there. Codex rejects an `extensions` field on that server and then does not install the MCP. Do not ask the user to paste the key into chat.
-
-The same header in `~/.codex/config.toml` is:
+   - In Codex, do not put the key in `mcp.json`. Codex removes `Authorization` from plugin MCP files, the server answers 401, and the tools stay missing. Disable that plugin server and add the key in `~/.codex/config.toml`. Do not ask the user to paste the key into chat.
 
 ```toml
+[plugins."productpanda@productpanda".mcp_servers.productpanda]
+enabled = false
+
 [mcp_servers.productpanda]
 url = "https://coding-agent-api.fly.dev/mcp"
 http_headers = { Authorization = "Bearer PASTE_YOUR_MCP_KEY" }

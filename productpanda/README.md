@@ -30,15 +30,18 @@ Each document tool takes an optional `product_id` (UUID). Omit it for the latest
 1. In Product Panda, open Settings, then MCP, and create a key. Copy it then. It starts with `mcp_`.
 2. Install this plugin.
 3. In Cursor, open Plugins, then Configure. Set **MCP URL** to `https://coding-agent-api.fly.dev/mcp` and **MCP key** to that key. For a local API, set the URL to `http://localhost:3000/mcp`.
-4. In Codex, replace `PASTE_YOUR_MCP_KEY` in `productpanda/mcp.json` with that key before you install or upgrade. Codex installs the bundled server from that file. The header is the same value as a direct Codex config:
+4. In Codex, add the key in `~/.codex/config.toml`. Codex installs the plugin server, then drops `Authorization` from `mcp.json` because that header is client owned. The handshake returns 401 and the tools never load. This user server is the one Codex sends:
 
 ```toml
+[plugins."productpanda@productpanda".mcp_servers.productpanda]
+enabled = false
+
 [mcp_servers.productpanda]
 url = "https://coding-agent-api.fly.dev/mcp"
 http_headers = { Authorization = "Bearer PASTE_YOUR_MCP_KEY" }
 ```
 
-Do not paste the key into chat. Codex reads `headers` in `mcp.json`. An `extensions` block on that server is rejected, and the MCP is not installed.
+Do not paste the key into chat, and do not put it in `mcp.json`.
 
 Restart the relevant host and start a new chat after changing connection settings. Run `connection_status` and confirm it returns the expected organization id. In Cursor, confirm the server and skills in Customize.
 
@@ -50,7 +53,7 @@ Restart the relevant host and start a new chat after changing connection setting
 
 ### Public OpenAI submission
 
-Codex installs the remote server only when `mcp.json` contains `url` and `headers`. Public directory submission still rejects a nonempty `headers` object, so this bearer header is for Cursor and local Codex installs. A public listing needs an authentication flow the submission portal accepts.
+Codex strips `Authorization` from a plugin `mcp.json`, so a local Codex install needs the key in `~/.codex/config.toml`. A public listing still needs an authentication flow the submission portal accepts.
 
 See the official [packaging guide](https://developers.openai.com/plugins/build/plugins), [authentication limitations](https://developers.openai.com/plugins/deploy/submission#authentication-limitations), and [local Codex MCP configuration](https://learn.chatgpt.com/docs/extend/mcp).
 
