@@ -1,6 +1,6 @@
-# Product Panda for Cursor
+# Product Panda
 
-This plugin connects Cursor to a Product Panda organization. It installs the MCP server and skills that tell the agent which tool to call and how each returned document is structured.
+This plugin connects Cursor, ChatGPT, and Codex to a Product Panda organization. It installs the MCP server and skills that tell the agent which tool to call and how each returned document is structured.
 
 The server is read only. A key can see every product in its organization.
 
@@ -28,15 +28,22 @@ Each document tool takes an optional `product_id` (UUID). Omit it for the latest
 
 1. In Product Panda, open Settings, then MCP, and create a key. Copy it then. It starts with `mcp_`.
 2. Install this plugin.
-3. In Cursor, open Plugins, then Configure.
-4. Set **MCP key** to that key.
-5. Leave **MCP URL** at `https://coding-agent-api.fly.dev/mcp` unless the API is running on your machine. Local API: `http://localhost:3000/mcp`.
+3. In Cursor, open Plugins, then Configure. Set **MCP URL** to `https://coding-agent-api.fly.dev/mcp` and **MCP key** to that key. For a local API, set the URL to `http://localhost:3000/mcp`.
+4. In ChatGPT or Codex, install from the repo marketplace. When asked for a bearer token, paste the same key. The server URL is `https://coding-agent-api.fly.dev/mcp`.
 
-Reload the window. In Customize, confirm the `productpanda` server and the five skills.
+Reload Cursor. In Customize, confirm the `productpanda` server and the skills.
 
 ## Add the marketplace
 
 In Cursor, add plugins from the repository root (the folder that contains `.cursor-plugin/marketplace.json`). Selecting `productpanda/` alone fails, because that folder has no marketplace manifest.
+
+In Codex:
+
+```bash
+codex plugin marketplace add productpanda-ai/productpanda-plugin
+```
+
+In the ChatGPT desktop app, restart after pulling this repo, open the Plugins directory, choose the Product Panda marketplace, and install the plugin.
 
 ## Try it locally
 

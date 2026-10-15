@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "productpanda",
+  "version": "0.2.0",
+  "description": "Read Product Panda product truth, product audit, tech audit, and competitive analysis.",
+  "author": {
+    "name": "Product Panda",
+    "url": "https://app.productpanda.ai"
+  },
+  "homepage": "https://app.productpanda.ai",
+  "repository": "https://github.com/productpanda-ai/productpanda-plugin",
+  "keywords": ["productpanda", "product-truth", "audit", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/setup/SKILL.md",
+      "interface": {
+        "displayName": "Product Panda",
+        "shortDescription": "Read Product Panda product truth, audits, and competitive analysis.",
+        "longDescription": "Connects ChatGPT and Codex to a Product Panda organization. Skills explain which tool to call and how each document is structured. The server is read only.",
+        "developerName": "Product Panda",
+        "category": "Productivity",
+        "capabilities": ["Read"],
+        "websiteURL": "https://app.productpanda.ai",
+        "defaultPrompt": [
+          "What does the latest product truth say we are building?",
+          "Summarize the highest severity findings in the tech audit."
+        ],
+        "composerIcon": "./assets/panda.png",
+        "logo": "./assets/panda.png"
+      }
+    }
+  }
+}

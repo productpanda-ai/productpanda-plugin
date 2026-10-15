@@ -1,7 +1,9 @@
 # Product Panda
 
-This folder is a Cursor marketplace with one plugin, `productpanda`.
+This folder is a plugin marketplace with one plugin, `productpanda`.
 
-Import this folder in Cursor. Do not import `productpanda/` by itself. Cursor reads `.cursor-plugin/marketplace.json` here, then loads the plugin from `productpanda/`.
+Cursor reads `.cursor-plugin/marketplace.json` and loads the plugin from `productpanda/`. Import this folder. Do not import `productpanda/` by itself.
+
+ChatGPT and Codex read `.agents/plugins/marketplace.json`. Add this repository with `codex plugin marketplace add productpanda-ai/productpanda-plugin`, or open it in the ChatGPT desktop app and install Product Panda from the repo marketplace.
 
 See `productpanda/README.md` for tools, skills, and configuration.
