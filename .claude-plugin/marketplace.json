@@ -1,0 +1,14 @@
+{
+  "name": "productpanda",
+  "owner": {
+    "name": "Product Panda"
+  },
+  "description": "Product Panda plugins for Claude Code",
+  "plugins": [
+    {
+      "name": "productpanda",
+      "source": "./claude",
+      "description": "Read Product Panda product truth, product audit, tech audit, and competitive analysis, with skills that explain how to call each tool and how each document is structured."
+    }
+  ]
+}
