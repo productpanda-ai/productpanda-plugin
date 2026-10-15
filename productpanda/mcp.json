@@ -1,16 +1,10 @@
 {
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
   "mcpServers": {
     "productpanda": {
-      "type": "streamable-http",
+      "type": "http",
       "url": "https://coding-agent-api.fly.dev/mcp",
-      "extensions": {
-        "com.openai": {
-          "auth": {
-            "type": "api_key",
-            "headerScheme": "bearer"
-          }
-        }
+      "http_headers": {
+        "Authorization": "Bearer PASTE_YOUR_MCP_KEY"
       }
     }
   }

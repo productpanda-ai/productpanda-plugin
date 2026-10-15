@@ -29,7 +29,13 @@ Each document tool takes an optional `product_id` (UUID). Omit it for the latest
 1. In Product Panda, open Settings, then MCP, and create a key. Copy it then. It starts with `mcp_`.
 2. Install this plugin.
 3. In Cursor, open Plugins, then Configure. Set **MCP URL** to `https://coding-agent-api.fly.dev/mcp` and **MCP key** to that key. For a local API, set the URL to `http://localhost:3000/mcp`.
-4. In ChatGPT or Codex, install from the repo marketplace. When asked for a bearer token, paste the same key. The server URL is `https://coding-agent-api.fly.dev/mcp`.
+4. In Codex, replace `PASTE_YOUR_MCP_KEY` in `productpanda/.mcp.json` with that key. The server is registered the same way as a direct Codex config:
+
+```toml
+[mcp_servers.productpanda]
+url = "https://coding-agent-api.fly.dev/mcp"
+http_headers = { Authorization = "Bearer PASTE_YOUR_MCP_KEY" }
+```
 
 Reload Cursor. In Customize, confirm the `productpanda` server and the skills.
 
