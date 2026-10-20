@@ -1,15 +1,18 @@
 ---
 name: reading-product-audit
 description: >-
-  Reads a Product Panda product audit (CPO audit) from get_latest_product_audit.
-  Use after that tool returns, or when the user asks about product health,
-  personas, journeys, friction, activation, monetization, instrumentation, or
-  product recommendations.
+  Reads the stored review of how users experience the product from
+  get_latest_product_audit: who they are, where they get stuck, how long it
+  takes to get value, how the product makes money, and what to fix first. Use
+  after that tool returns. The file is often titled CPO Product Audit. When
+  you answer the user, talk about users and what to fix, not that title.
 ---
 
-# Reading the product audit
+# Reading the user experience review
 
-`get_latest_product_audit` returns the latest finished product audit whose document is present. The body is a markdown report, usually titled `# CPO Product Audit`. Section headings are the contract. Look up the heading that matches the question. Do not treat a heading that is absent as an empty finding.
+This document reviews the product as users experience it: who they are, where they get stuck, how long it takes to reach value, how the product makes money, and what to fix first. The tool response title is `product audit`, and the markdown is often titled `# CPO Product Audit`. Those are internal names. When you answer, talk about users, friction, and what to fix. Use product audit or CPO only if the user already did.
+
+`get_latest_product_audit` returns the latest finished review whose document is present. Section headings are the contract. Look up the heading that matches the question. Do not treat a heading that is absent as an empty finding.
 
 ## Sections
 

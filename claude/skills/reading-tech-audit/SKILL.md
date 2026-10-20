@@ -1,14 +1,17 @@
 ---
 name: reading-tech-audit
 description: >-
-  Reads a Product Panda tech audit from get_latest_tech_audit. Use after that
-  tool returns, or when the user asks about technical risk, security,
-  reliability, performance, tech debt, the stack, architecture, or the CTO audit.
+  Reads the stored engineering review from get_latest_tech_audit: security,
+  reliability, performance, debt, the stack, and how the system is built. Use
+  after that tool returns. The file is often titled CTO Technical Audit. When
+  you answer the user, talk about engineering risk, not that title.
 ---
 
-# Reading the tech audit
+# Reading the engineering review
 
-`get_latest_tech_audit` returns the merged CTO document when one exists, otherwise the latest finished CTO analysis. The body is markdown, usually titled `# CTO Technical Audit`. Severity in the narrative is `CRITICAL`, `HIGH`, `MEDIUM`, or `LOW`. File paths, function names, and routes in the text are the evidence. Quote them.
+This document is an engineering review: security, reliability, performance, debt, the stack, and how the system is put together. The tool response title is `tech audit`, and the markdown is often titled `# CTO Technical Audit`. Those are internal names. When you answer, talk about engineering risk and the codebase. Use tech audit or CTO only if the user already did.
+
+`get_latest_tech_audit` returns the merged engineering document when one exists, otherwise the latest finished engineering analysis. Severity in the narrative is `CRITICAL`, `HIGH`, `MEDIUM`, or `LOW`. File paths, function names, and routes in the text are the evidence. Quote them.
 
 ## Sections
 

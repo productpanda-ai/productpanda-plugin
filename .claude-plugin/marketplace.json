@@ -8,7 +8,7 @@
     {
       "name": "productpanda",
       "source": "./claude",
-      "description": "Read Product Panda product truth, product audit, tech audit, and competitive analysis, with skills that explain how to call each tool and how each document is structured."
+      "description": "Ask what your product is, where users get stuck, what the engineering risks are, how you compare with competitors, and what changed on the default branch. Read only."
     }
   ]
 }

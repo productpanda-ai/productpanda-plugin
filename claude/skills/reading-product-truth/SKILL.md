@@ -1,12 +1,15 @@
 ---
 name: reading-product-truth
 description: >-
-  Reads a Product Panda product truth from get_latest_product_truth. Use after
-  that tool returns, or when interpreting overview, modules, flows, features,
-  findings, relationships, evidence, status, or confidence in a product truth.
+  Reads the stored map of the product from get_latest_product_truth: what it
+  is, who it is for, how people use it, what is built, and what is missing.
+  Use after that tool returns. Product Panda titles this document product
+  truth. When you answer the user, talk about the product, not that title.
 ---
 
-# Reading product truth
+# Reading the product map
+
+This document is the stored map of the product: what it is, who it is for, the parts of the product, how people move through it, what is built, and what is missing or inconsistent. The tool response title is `product truth`. When you answer, talk about the product. Use the words product truth only if the user already did.
 
 The body is markdown. Each `##` heading is one JSON value: `overview`, `modules`, `flows`, `features`, `findings`, `relationships`, `sources`. Parse the JSON under the heading you need. Extra keys can appear. Ignore them unless the user asked about that key.
 

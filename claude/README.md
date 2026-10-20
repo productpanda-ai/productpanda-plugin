@@ -27,15 +27,16 @@ Only `plugin.json` belongs in `.claude-plugin/`. The marketplace file is at the 
 
 ## Tools
 
-| Tool | Returns |
+| Tool | What the user can ask |
 | --- | --- |
-| `connection_status` | Organization id for this key. No product data. |
-| `get_latest_product_truth` | Latest product truth (merged truth when a finished analysis has one). |
-| `get_latest_product_audit` | Latest finished product audit. |
-| `get_latest_tech_audit` | Merged CTO document when one exists, otherwise the latest finished CTO analysis. |
-| `get_latest_competitive_analysis` | Latest finished competitive comparison. |
+| `connection_status` | Is the key connected, and which organization is it? No product data. |
+| `get_latest_product_truth` | What the product is, who it is for, how people use it, what is built, and what is missing. |
+| `get_latest_product_audit` | Where users get stuck, how the product makes money, and what to fix first. |
+| `get_latest_tech_audit` | Engineering risks: security, reliability, performance, debt, the stack, and how the system is built. |
+| `get_latest_competitive_analysis` | How this product compares with competitors already analyzed: features, pricing, and gaps. |
+| `get_nightly_changes` | What changed on the default branch on a day, or over the last few days. |
 
-Each document tool takes an optional `product_id` (UUID). Omit it for the latest document in the organization.
+The four latest document tools take an optional `product_id` (UUID). Omit it for the latest document in the organization. `get_nightly_changes` needs exactly one of `day` (`YYYY-MM-DD`) or `period_days` (1 to 31), and the same optional `product_id`.
 
 In `/mcp` the server is `plugin:productpanda:productpanda`. A tool such as `connection_status` is invoked as `mcp__plugin_productpanda_productpanda__connection_status`.
 
@@ -44,11 +45,12 @@ In `/mcp` the server is `plugin:productpanda:productpanda`. A tool such as `conn
 Skills are prefixed with the plugin name, so setup is `/productpanda:setup`.
 
 - `setup` guides connection setup and verifies the organization with `connection_status`.
-- `using-product-panda` chooses the tool and reads the response header.
-- `reading-product-truth` explains overview, modules, flows, features, findings, and relationships.
-- `reading-product-audit` explains the product audit sections and the trailing scores.
-- `reading-tech-audit` explains the tech audit sections and the trailing scores.
-- `reading-competitive-analysis` explains the comparison report.
+- `using-product-panda` answers what the plugin can do, in everyday language, then chooses the tool.
+- `reading-product-truth` explains the stored map of the product.
+- `reading-product-audit` explains the stored review of how users experience the product.
+- `reading-tech-audit` explains the stored engineering review.
+- `reading-competitive-analysis` explains the stored competitor comparison.
+- `reading-nightly-changes` explains overnight changes on the default branch.
 
 ## Configure
 
