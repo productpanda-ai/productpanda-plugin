@@ -35,8 +35,9 @@ Only `plugin.json` belongs in `.claude-plugin/`. The marketplace file is at the 
 | `get_latest_tech_audit` | Engineering risks: security, reliability, performance, debt, the stack, and how the system is built. |
 | `get_latest_competitive_analysis` | How this product compares with competitors already analyzed: features, pricing, and gaps. |
 | `get_nightly_changes` | What changed on the default branch on a day, or over the last few days. |
+| `generate-personalized-skills` | A skill set for this product, written into this repository. Nothing is stored on the server. |
 
-The four latest document tools take an optional `product_id` (UUID). Omit it for the latest document in the organization. `get_nightly_changes` needs exactly one of `day` (`YYYY-MM-DD`) or `period_days` (1 to 31), and the same optional `product_id`.
+The four latest document tools and `generate-personalized-skills` take an optional `product_id` (UUID). Omit it for the latest document in the organization. `get_nightly_changes` needs exactly one of `day` (`YYYY-MM-DD`) or `period_days` (1 to 31), and the same optional `product_id`.
 
 In `/mcp` the server is `plugin:productpanda:productpanda`. A tool such as `connection_status` is invoked as `mcp__plugin_productpanda_productpanda__connection_status`.
 
@@ -51,6 +52,7 @@ Skills are prefixed with the plugin name, so setup is `/productpanda:setup`.
 - `reading-tech-audit` explains the stored engineering review.
 - `reading-competitive-analysis` explains the stored competitor comparison.
 - `reading-nightly-changes` explains overnight changes on the default branch.
+- `writing-personalized-skills` writes the skill set from `generate-personalized-skills` into `.claude/skills/`.
 
 ## Configure
 
