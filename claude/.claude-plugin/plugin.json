@@ -2,7 +2,7 @@
   "name": "productpanda",
   "displayName": "Product Panda",
   "version": "0.3.0",
-  "description": "Ask what your product is, where users get stuck, what the engineering risks are, how you compare with competitors, and what changed on the default branch. Read only.",
+  "description": "Ask what your product is, where users get stuck, what the engineering risks are, how you compare with competitors, and what changed on the default branch. It can also write a skill set for the product into the repository. The server is read only.",
   "author": {
     "name": "Product Panda",
     "url": "https://app.productpanda.ai"

@@ -5,23 +5,25 @@ description: >-
   matching read only tool. Use when the user asks what they can do with
   Product Panda or this plugin, or asks what the product is, who it is for,
   how it works, where users get stuck, engineering risks, competitors, or
-  what changed on the default branch. Also use before answering those
-  questions from memory or from the repo.
+  what changed on the default branch, or asks for a skill set for this
+  product. Also use before answering those questions from memory or from
+  the repo.
 ---
 
 # Using Product Panda
 
-The tools only read analysis Product Panda already stored for the organization that owns the key. They do not search the web, edit the product, start a new analysis, or list every product.
+The tools only read analysis Product Panda already stored for the organization that owns the key. They do not search the web, edit the product, start a new analysis, or list every product. `generate-personalized-skills` writes nothing on the server. It returns skill files for you to save in this repository.
 
 ## What you can ask
 
-When the user asks what this plugin can do, answer with these five things. Describe them in everyday language. Do not mention tool names. Do not say product truth, product audit, tech audit, CPO, or CTO unless the user already used those words.
+When the user asks what this plugin can do, answer with these six things. Describe them in everyday language. Do not mention tool names. Do not say product truth, product audit, tech audit, CPO, or CTO unless the user already used those words.
 
 - What the product is, who it is for, how people use it, what is built, and what is missing.
 - Where users get stuck, how the product makes money, and what to fix first.
 - Engineering risks: security, reliability, performance, debt, the stack, and how the system is built.
 - How this product compares with the competitors already analyzed: features, pricing, and gaps.
 - What changed on the default branch on a given day, or over the last few days: product changes, engineering changes, and the files that shipped.
+- A skill set for this product, written into this repository, from the stored product map, the user experience review, and the engineering review.
 
 ## Which tool
 
@@ -33,6 +35,7 @@ When the user asks what this plugin can do, answer with these five things. Descr
 | Security, reliability, performance, debt, the stack, architecture | `get_latest_tech_audit` | `reading-tech-audit` |
 | Competitors, feature comparison, pricing, gaps | `get_latest_competitive_analysis` | `reading-competitive-analysis` |
 | What shipped on a day, or over the last few days | `get_nightly_changes` | `reading-nightly-changes` |
+| A skill set for this product, written into this repository | `generate-personalized-skills` | `writing-personalized-skills` |
 
 Call one tool. Call a second only when the question needs a second document. `connection_status` takes no arguments and returns no product data. Use it when a later call fails auth, or when you need the organization id.
 
@@ -45,6 +48,8 @@ The four latest document tools accept one optional argument, `product_id`, and i
 - A non UUID returns a tool error: `product_id must be a UUID.`
 
 `get_nightly_changes` also needs a window. Pass exactly one of `day` (`YYYY-MM-DD`) or `period_days` (an integer from 1 to 31). `period_days: 7` means today and the six days before it, in the organization timezone. The same `product_id` rule applies. Read `reading-nightly-changes` before you summarize that call.
+
+`generate-personalized-skills` takes the same optional `product_id`. Read `writing-personalized-skills` and write every returned file into this repository. Do not summarize the skills instead of writing them.
 
 ## Response
 
