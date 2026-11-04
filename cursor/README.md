@@ -2,7 +2,7 @@
 
 Cursor plugin. The marketplace entry at the repository root points here with `"source": "cursor"`.
 
-The server is read only. A key can see every product in its organization.
+A key can see every product in its organization. Personalized skills are saved once for that organization. The other tools only read stored analysis.
 
 ## Layout
 
@@ -33,7 +33,7 @@ Cursor discovers `mcp.json` and `skills/` from those default locations. `plugin.
 | `get_latest_tech_audit` | Engineering risks: security, reliability, performance, debt, the stack, and how the system is built. |
 | `get_latest_competitive_analysis` | How this product compares with competitors already analyzed: features, pricing, and gaps. |
 | `get_nightly_changes` | What changed on the default branch on a day, or over the last few days. |
-| `generate-personalized-skills` | A skill set for this product, written into this repository. Nothing is stored on the server. |
+| `generate-personalized-skills` | A skill set for this product, written into this repository. Saved once for the organization and reused for later requests. |
 
 The four latest document tools and `generate-personalized-skills` take an optional `product_id` (UUID). Omit it for the latest document in the organization. `get_nightly_changes` needs exactly one of `day` (`YYYY-MM-DD`) or `period_days` (1 to 31), and the same optional `product_id`.
 

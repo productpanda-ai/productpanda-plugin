@@ -8,7 +8,7 @@ description: >-
 
 # Set up Product Panda
 
-The server is read only. The key belongs to one organization and can see every product in that organization.
+The key belongs to one organization and can see every product in that organization. Personalized skills are saved once for that organization. The other tools only read stored analysis.
 
 1. Ask the user to open Product Panda, then Settings, then MCP, and create a key. It starts with `mcp_` and is shown once.
 2. Codex removes `Authorization` from a plugin `mcp.json`, so the bundled server answers 401 and its tools never load. Disable that plugin server and add the key in `~/.codex/config.toml`. Do not ask the user to paste the key into chat, and do not write the key into this repository.

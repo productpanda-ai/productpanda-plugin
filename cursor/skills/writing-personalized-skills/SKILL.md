@@ -11,7 +11,7 @@ description: >-
 
 Call `generate-personalized-skills`. Pass `product_id` only when you already have that UUID. Omit it to use the latest documents in the organization.
 
-The tool reads the stored product map, the user experience review, and the engineering review. When several repositories belong to one product, those documents are already merged. The tool does not save the skills.
+The tool reads the stored product map, the user experience review, and the engineering review. When several repositories belong to one product, those documents are already merged. The first successful call saves one skill set for the organization. A later call returns that set. Write the files either way.
 
 ## Write the files
 

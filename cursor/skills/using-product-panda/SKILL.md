@@ -2,7 +2,7 @@
 name: using-product-panda
 description: >-
   Explains what someone can ask the Product Panda plugin, then calls the
-  matching read only tool. Use when the user asks what they can do with
+  matching tool. Use when the user asks what they can do with
   Product Panda or this plugin, or asks what the product is, who it is for,
   how it works, where users get stuck, engineering risks, competitors, or
   what changed on the default branch, or asks for a skill set for this
@@ -12,7 +12,7 @@ description: >-
 
 # Using Product Panda
 
-The tools only read analysis Product Panda already stored for the organization that owns the key. They do not search the web, edit the product, start a new analysis, or list every product. `generate-personalized-skills` writes nothing on the server. It returns skill files for you to save in this repository.
+The tools read analysis Product Panda already stored for the organization that owns the key. They do not search the web, edit the product, start a new analysis, or list every product. `generate-personalized-skills` saves one skill set for the organization. A later request returns that same set. It still returns skill files for you to save in this repository.
 
 ## What you can ask
 
@@ -23,7 +23,7 @@ When the user asks what this plugin can do, answer with these six things. Descri
 - Engineering risks: security, reliability, performance, debt, the stack, and how the system is built.
 - How this product compares with the competitors already analyzed: features, pricing, and gaps.
 - What changed on the default branch on a given day, or over the last few days: product changes, engineering changes, and the files that shipped.
-- A skill set for this product, written into this repository, from the stored product map, the user experience review, and the engineering review.
+- A skill set for this product, written into this repository, from the stored product map, the user experience review, and the engineering review. The same set is saved for the organization and reused for later requests.
 
 ## Which tool
 
@@ -49,7 +49,7 @@ The four latest document tools accept one optional argument, `product_id`, and i
 
 `get_nightly_changes` also needs a window. Pass exactly one of `day` (`YYYY-MM-DD`) or `period_days` (an integer from 1 to 31). `period_days: 7` means today and the six days before it, in the organization timezone. The same `product_id` rule applies. Read `reading-nightly-changes` before you summarize that call.
 
-`generate-personalized-skills` takes the same optional `product_id`. Read `writing-personalized-skills` and write every returned file into this repository. Do not summarize the skills instead of writing them.
+`generate-personalized-skills` takes the same optional `product_id` on the first successful call. After that, anyone in the organization receives the saved skill set, including when they pass a different `product_id`. Read `writing-personalized-skills` and write every returned file into this repository. Do not summarize the skills instead of writing them.
 
 ## Response
 
