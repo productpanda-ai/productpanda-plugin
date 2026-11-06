@@ -13,6 +13,8 @@ Call `generate-personalized-skills`. Pass `product_id` only when you already hav
 
 The tool reads the stored product map, the user experience review, and the engineering review. When several repositories belong to one product, those documents are already merged. The first successful call saves one skill set for the organization. A later call returns that set. Write the files either way.
 
+If the response says personalized skills are being generated, it has no files. That is not a failure. Wait about a minute, then call the tool again. Repeat until the response contains the skill files. Stop after three of those replies and tell the user it is still generating. Do not write files from the generating response.
+
 ## Write the files
 
 Each skill is wrapped like this:
