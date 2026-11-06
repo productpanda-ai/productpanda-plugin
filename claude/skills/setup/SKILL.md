@@ -8,7 +8,7 @@ description: >-
 
 # Set up Product Panda
 
-The server is read only. The key belongs to one organization and can see every product in that organization.
+The key belongs to one organization and can see every product in that organization. Personalized skills are saved once for that organization. The other tools only read stored analysis.
 
 1. Ask the user to open Product Panda, then Settings, then MCP, and create a key. It starts with `mcp_` and is shown once.
 2. In Claude Code, run `/plugin configure productpanda`. Set MCP URL to `https://coding-agent-api.fly.dev/mcp` and MCP key to the raw key. For a local API, set the URL to `http://localhost:3000/mcp`.
